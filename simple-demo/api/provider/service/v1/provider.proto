@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package api.provider.service.v1;
+
+option go_package = "simple-demo/api/provider/service/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.provider.service.v1";
+
+service Provider {
+	rpc CreateProvider (CreateProviderRequest) returns (CreateProviderReply);
+	rpc UpdateProvider (UpdateProviderRequest) returns (UpdateProviderReply);
+	rpc DeleteProvider (DeleteProviderRequest) returns (DeleteProviderReply);
+	rpc GetProvider (GetProviderRequest) returns (GetProviderReply);
+	rpc ListProvider (ListProviderRequest) returns (ListProviderReply);
+}
+
+message CreateProviderRequest {}
+message CreateProviderReply {}
+
+message UpdateProviderRequest {}
+message UpdateProviderReply {}
+
+message DeleteProviderRequest {}
+message DeleteProviderReply {}
+
+message GetProviderRequest {
+	int64 id = 1;
+}
+message GetProviderReply {
+	int64 id = 1;
+	string name = 2;
+}
+
+message ListProviderRequest {
+	int64 id = 1;
+}
+message ListProviderReply {
+	message Provider {
+		int64 id = 1;
+		string name = 2;
+	}
+	repeated Provider results = 1;
+}

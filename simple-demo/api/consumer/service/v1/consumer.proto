@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package api.consumer.service.v1;
+
+option go_package = "simple-demo/api/consumer/service/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.consumer.service.v1";
+
+service Consumer {
+	rpc CreateConsumer (CreateConsumerReq) returns (CreateConsumerReply);
+	rpc UpdateConsumer (UpdateConsumerReq) returns (UpdateConsumerReply);
+	rpc DeleteConsumer (DeleteConsumerReq) returns (DeleteConsumerReply);
+	rpc GetConsumer (GetConsumerReq) returns (GetConsumerReply);
+	rpc ListConsumer (ListConsumerReq) returns (ListConsumerReply);
+	rpc CallProvider(CallProviderReq) returns (CallProviderReply);
+}
+
+message CreateConsumerReq {}
+message CreateConsumerReply {}
+
+message UpdateConsumerReq {}
+message UpdateConsumerReply {}
+
+message DeleteConsumerReq {}
+message DeleteConsumerReply {}
+
+message GetConsumerReq {}
+message GetConsumerReply {}
+
+message ListConsumerReq {}
+message ListConsumerReply {}
+
+message CallProviderReply {
+	int64 id = 1;
+	string name = 2;
+}
+
+message CallProviderReq {
+	int64 id = 1;
+}
